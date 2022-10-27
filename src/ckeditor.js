@@ -2,17 +2,17 @@
  * @license Copyright (c) 2014-2022, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-import BalloonBlockEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
-import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
+import FindAndReplace from '@ckeditor/ckeditor5-find-and-replace/src/findandreplace.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
@@ -38,7 +38,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
-class Editor extends BalloonBlockEditor {}
+class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
@@ -47,11 +47,11 @@ Editor.builtinPlugins = [
 	AutoLink,
 	Autosave,
 	BlockQuote,
-	BlockToolbar,
 	Bold,
 	Code,
 	CodeBlock,
 	Essentials,
+	FindAndReplace,
 	Heading,
 	Highlight,
 	HorizontalLine,
@@ -82,41 +82,40 @@ Editor.builtinPlugins = [
 Editor.defaultConfig = {
 	toolbar: {
 		items: [
+			'heading',
+			'|',
 			'bold',
 			'italic',
 			'underline',
 			'strikethrough',
-			'code',
+			'highlight',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'todoList',
+			'|',
+			'outdent',
+			'indent',
 			'|',
 			'link',
-			'highlight',
-			'-',
-			'indent',
-			'outdent',
+			'code',
+			'codeBlock',
+			'blockQuote',
+			'|',
+			'undo',
+			'redo',
+			'|',
+			'horizontalLine',
+			'imageInsert',
+			'insertTable',
+			'mediaEmbed',
+			'|',
+			'findAndReplace',
+			'sourceEditing',
 			'removeFormat'
-		],
-		shouldNotGroupWhenFull: true
+		]
 	},
 	language: 'en',
-	blockToolbar: [
-		'heading',
-		'|',
-		'bulletedList',
-		'numberedList',
-		'todoList',
-		'|',
-		'horizontalLine',
-		'insertTable',
-		'imageInsert',
-		'mediaEmbed',
-		'codeBlock',
-		'blockQuote',
-		'|',
-		'sourceEditing',
-		'|',
-		'undo',
-		'redo'
-	],
 	table: {
 		contentToolbar: [
 			'tableColumn',
