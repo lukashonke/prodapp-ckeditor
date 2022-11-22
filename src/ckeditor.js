@@ -27,6 +27,7 @@ import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
+import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js';
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
@@ -66,6 +67,7 @@ Editor.builtinPlugins = [
 	List,
 	Markdown,
 	MediaEmbed,
+	Mention,
 	Paragraph,
 	RemoveFormat,
 	SimpleUploadAdapter,
@@ -110,9 +112,9 @@ Editor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'|',
-			'findAndReplace',
 			'sourceEditing',
-			'removeFormat'
+			'removeFormat',
+			'findAndReplace'
 		]
 	},
 	language: 'en',
